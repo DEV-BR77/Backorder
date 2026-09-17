@@ -1,0 +1,27 @@
+# Lokale Konfiguration und Zugangsdaten
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+secrets/
+
+# Python- und Test-Artefakte
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.venv/
+venv/
+
+# Lokale Datenbank- und Anwendungsdaten
+*.sqlite3
+*.db
+data/
+uploads/
+
+# Editor und Betriebssystem
+.vscode/
+.idea/
+Thumbs.db
+.DS_Store
