@@ -48,6 +48,49 @@ Der Stichtag wird verbindlich aus dem Dateinamen gewonnen, nicht aus dem Änderu
 - Kennzahl: durchschnittliche Zeit von Bestellung bis tatsächlicher Lieferung.
 - Kennzahlen zu Lieferavisen und Abweichungen erst nach gemeinsamer fachlicher Definition umsetzen.
 
+### Bereitzustellende OData-Entitäten
+
+- Einkaufsbestellköpfe und Einkaufsbestellzeilen
+- Einkaufslieferköpfe und Einkaufslieferzeilen
+- Verkaufsauftragsköpfe und Verkaufsauftragszeilen
+- Einlagerungsköpfe und Einlagerungszeilen
+
+### Einrichtungsseite für Business Central
+
+Die Anwendung erhält eine geschützte Einrichtungsseite, über die eine berechtigte Person die Verbindung einmalig hinterlegt und später ändern kann. Vorgesehen sind:
+
+- Business-Central-Server bzw. Basis-URL
+- Mandant
+- die OData-URL je bereitgestellter Entität
+- optional Gesellschaft bzw. Company, sofern sie Bestandteil der OData-Adressierung ist
+- Verbindungstest mit einer nicht verändernden Abfrage
+- Anzeige des letzten erfolgreichen Abrufs und eventueller Fehler
+
+Die OData-Abfragen erfolgen serverseitig. Als Verfahren ist Windows-Authentifizierung vorgesehen. Benutzernamen, Kennwörter oder vergleichbare Geheimnisse werden nicht im Klartext in der Datenbank gespeichert, sondern über eine geschützte Server-Konfiguration bzw. einen Secret-Speicher bereitgestellt. Die Einrichtungsseite speichert ausschließlich die fachliche Verbindungs- und URL-Konfiguration.
+
+## Fachliche Zielrichtung
+
+### Rückstandsüberwachung und historische KPIs
+
+- Entwicklung und Dauer von Rückständen über die Zeit überwachen.
+- Kennzahlen nach Hersteller, Fahrzeugmodell, Teilegruppe und Debitor bereitstellen.
+- Besonders lange und stark belastete Vorgänge sichtbar machen, einschließlich Top-5-Listen.
+- Lagerware und direkte Kundenbestellungen getrennt analysieren.
+- Trends bei Wartezeiten erkennen, insbesondere Zu- oder Abnahmen je Teilegruppe und Hersteller.
+
+### Liefertermin, Avis und tatsächliche Erfüllung
+
+- Voraussichtlichen Liefertermin aus `Liefertermin` und Hinweise aus `Bemerkung OTLG` mit tatsächlichem Wareneingang und tatsächlicher Kundenauslieferung vergleichen.
+- Lieferantenhinweise fachlich klassifizieren, etwa konkretes Datum, Kalenderwochen-Avis, Versandhinweis oder keine belastbare Aussage.
+- Termintreue und Abweichung in Tagen je Hersteller bzw. Lieferant messen.
+- Regeln für Folgeprozesse erst nach gemeinsamer fachlicher Bewertung dieser Klassifizierung festlegen.
+
+### Operative Erkennung und Kommunikation
+
+- Einlagerungen überwachen und erkennen, wenn ein rückständiger Kundenauftrag auf die eingegangene Artikelnummer wartet.
+- Daraus eine prüfbare Aufgabe oder einen Auslöser für die Disposition ableiten.
+- Später kontrolliert Business-Central-Datensätze anlegen und E-Mails an zuständige Disponenten versenden.
+
 ## Offene Punkte zur Finalisierung
 
 - Finale Bewertung und Bedeutung der vorhandenen Datenfelder, insbesondere Lieferavise.
