@@ -1,2 +1,6 @@
-<!doctype html><html lang="de"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>{% block title %}Rueckstandslisten{% endblock %}</title><link rel="stylesheet" href="{{ url_for('static',path='app.css') }}"></head><body><header><a class="brand" href="/">Rueckstandslisten</a><nav><a href="/">Dashboard</a><a href="/odata/query">OData-Abfrage</a><a href="/admin/odata">OData-Verwaltung</a></nav></header><main>{% block content %}{% endblock %}</main></body></html>
+<!doctype html>
+<html lang="de"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>{% block title %}Rückstandslisten{% endblock %}</title><link rel="stylesheet" href="{{ url_for('static',path='app.css') }}"></head>
+<body><header><div class="breadcrumb"><a class="brand" href="/">Rückstandslisten</a><span>/</span><span class="current-page">{% block page_name %}Dashboard{% endblock %}</span></div><nav><a href="/">Dashboard</a><a href="/backlogs">Rückstände</a><a href="/backlogs/mappings">OTLG-Mapping</a><a href="/backlogs/bc-test">BC-Testdatensatz</a><a href="/odata/query">OData-Abfrage</a><a href="/admin/odata">OData-Adressen</a></nav></header><main class="{% block main_class %}{% endblock %}">{% block content %}{% endblock %}</main></body></html>
+
+
 
